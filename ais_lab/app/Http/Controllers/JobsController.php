@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
-class BuildingsController extends Controller
+class JobsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $buildings = Building::all();
+        $jobs = Job::all();
 
         return [
             "status" => 1,
-            "data" => $buildings
+            "data" => $jobs
         ];
     }
 
@@ -25,7 +25,7 @@ class BuildingsController extends Controller
      */
     public function create()
     {
-//        return view('buildings.create');
+//        return view('jobs.create');
     }
 
     /**
@@ -34,65 +34,65 @@ class BuildingsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'city' => 'required',
+            'title' => 'required',
         ]);
 
-        $building = Building::create($request->all());
+        $job = Job::create($request->all());
 
         return [
             "status" => 1,
-            "data" => $building,
+            "data" => $job
         ];
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Building $building)
+    public function show(Job $job)
     {
         return [
             "status" => 1,
-            "data" =>$building
+            "data" => $job
         ];
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-//    public function edit(Building $building)
-//    {
-//        return view('buildings.edit',compact('building'));
-//    }
+    public function edit(Job $job)
+    {
+//        return view('jobs.edit',compact('job'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Building $building)
+    public function update(Request $request, Job $job)
     {
         $request->validate([
-            'city' => 'required',
+            'title' => 'required',
         ]);
 
-        $building->update($request->all());
+        $job->update($request->all());
 
         return [
             "status" => 1,
-            "data" => $building,
-            "msg" => "Blog updated successfully"
+            "data" => $job,
+            "msg" => "Job updated successfully"
         ];
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Building $building)
+    public function destroy(Job $job)
     {
-        $building->delete();
+        $job->delete();
 
         return [
             "status" => 1,
-            "data" => $building,
-            "msg" => "Blog deleted successfully"
+            "data" => $job,
+            "msg" => "Job deleted successfully"
         ];
     }
 }

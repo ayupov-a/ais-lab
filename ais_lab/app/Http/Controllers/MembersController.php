@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
+use App\Models\Member;
 use Illuminate\Http\Request;
 
-class BuildingsController extends Controller
+class MembersController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $buildings = Building::all();
+        $members = Member::all();
 
         return [
             "status" => 1,
-            "data" => $buildings
+            "data" => $members,
         ];
     }
 
@@ -25,7 +25,7 @@ class BuildingsController extends Controller
      */
     public function create()
     {
-//        return view('buildings.create');
+//        return view('members.create');
     }
 
     /**
@@ -34,65 +34,65 @@ class BuildingsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'city' => 'required',
+            'name' => 'required',
         ]);
 
-        $building = Building::create($request->all());
+        $member = Member::create($request->all());
 
         return [
             "status" => 1,
-            "data" => $building,
+            "data" => $member
         ];
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Building $building)
+    public function show(Member $member)
     {
         return [
             "status" => 1,
-            "data" =>$building
+            "data" =>$member
         ];
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-//    public function edit(Building $building)
-//    {
-//        return view('buildings.edit',compact('building'));
-//    }
+    public function edit(Member $member)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Building $building)
+    public function update(Request $request, Member $member)
     {
         $request->validate([
-            'city' => 'required',
+            'name' => 'required',
         ]);
 
-        $building->update($request->all());
+        $member->update($request->all());
 
         return [
             "status" => 1,
-            "data" => $building,
-            "msg" => "Blog updated successfully"
+            "data" => $member,
+            "msg" => "Member updated successfully"
         ];
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Building $building)
+    public function destroy(Member $member)
     {
-        $building->delete();
+        $member->delete();
 
         return [
             "status" => 1,
-            "data" => $building,
-            "msg" => "Blog deleted successfully"
+            "data" => $member,
+            "msg" => "Member deleted successfully"
         ];
     }
 }

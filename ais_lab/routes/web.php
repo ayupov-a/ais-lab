@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/clients', '\App\Http\Controllers\ClientsController@index');
-Route::get('/clients/read', '\App\Http\Controllers\ClientsController@read');
-Route::get('/clients/store', '\App\Http\Controllers\ClientsController@store');
-Route::get('/clients/update', '\App\Http\Controllers\ClientsController@update');
-Route::get('/clients/delete', '\App\Http\Controllers\ClientsController@destroy');
+Route::resource('/job', 'App\Http\Controllers\JobsController');
+Route::resource('/member', 'App\Http\Controllers\MembersController');
+Route::resource('/building', 'App\Http\Controllers\BuildingsController');
+
