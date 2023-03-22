@@ -12,5 +12,10 @@ class Client extends Model
     use SoftDeletes;
 
     protected $table = 'clients';
-    protected $guarded = false;
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'email',
+        'phone',
+    ];
 }

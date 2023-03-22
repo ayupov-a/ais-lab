@@ -12,12 +12,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = Member::all();
-
-        return [
-            "status" => 1,
-            "data" => $members,
-        ];
+        return(Member::all());
     }
 
     /**

@@ -5,3 +5,4 @@
 - CRUD
 - Функциональные тесты
 - RESTFul API на OpenAPI
+- GUI Bootstrap + Vite

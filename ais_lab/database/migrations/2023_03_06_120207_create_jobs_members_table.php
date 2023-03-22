@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_members', function (Blueprint $table) {
+        Schema::create('jobs_members', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('job_id');
@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreign('member_id', 'job_member_member_fk')->on('members')->references('id');
 
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
@@ -32,6 +34,12 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('jobs_members', function (Blueprint $table) {
+            $table->dropForeign('job_member_job_fk');
+            $table->dropForeign('job_member_member_fk');
+            $table->dropIndex('job_member_job_idx');
+            $table->dropIndex('job_member_member_idx');
+        });
         Schema::dropIfExists('jobs_members');
     }
 };

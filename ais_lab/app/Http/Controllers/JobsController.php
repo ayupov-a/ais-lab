@@ -12,12 +12,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
-
-        return [
-            "status" => 1,
-            "data" => $jobs
-        ];
+        return(Job::all());
     }
 
     /**
@@ -27,6 +22,7 @@ class JobsController extends Controller
     {
 //        return view('jobs.create');
     }
+
 
     /**
      * Store a newly created resource in storage.

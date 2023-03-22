@@ -21,6 +21,8 @@ return new class extends Migration
 
 
             $table->timestamps();
+            $table->softDeletes();
+
 
         });
     }
@@ -30,6 +32,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('jobs', function (Blueprint $table) {
+            $table->dropForeign('job_building_fk');
+            $table->dropIndex('job_building_idx');
+        });
         Schema::dropIfExists('jobs');
     }
 };

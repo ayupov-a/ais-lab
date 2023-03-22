@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
+
 class ClientsController extends Controller
 {
     //find(id) - select where id =
@@ -14,38 +15,35 @@ class ClientsController extends Controller
 
     public function index()
     {
-        return 'hello';
+        return view('main');
     }
 
-    public function read(){
-        $clients = Client::all();
-        dd($clients);
+    public function show($id){
+        $cli = Client::find($id);
+        return $cli;
     }
 
     public function store(){
-        Client::create([
-            'firstname' => 'BUl',
-            'lastname' => 'BUL',
-            'email' => 'BUL@a.ru',
-            'phone' => '89999999999',
-        ]);
+
+        dd('Created!!!!!!!!!!!!!!!!!!!!!!!');
     }
 
-    public function update(){
-        $client = Client::find(2);
+    public function update($id){
+        $client = Client::find($id);
 
         $client->update([
-            'firstname' => 'Kutl',
-            'lastname' => 'ural',
-            'email' => 'ural@a.ru',
+            'firstname' => 'edited',
+            'lastname' => 'edited',
+            'email' => 'edited@a.ru',
             'phone' => '8998',
         ]);
+        dd('updated line #' . $id);
     }
 
     public function destroy(){
 //        $cl = Client::where('id', 1)->get();
-        $cl = Client::find(2);
-        $cl = Client::withTrashed()->find(2);
+        $cl = Client::find(3);
+//        $cl = Client::withTrashed()->find(3);
         $cl->delete();
         dd('deleted');
     }

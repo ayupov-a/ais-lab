@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/zircote/swagger-php" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/darkaonline/l5-swagger" />
+      <excludeFolder url="file://$MODULE_DIR$/ais_lab/vendor/swagger-api/swagger-ui" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -11,6 +11,15 @@ class Building extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'building_id', 'id');
+    }
+
     protected $table = 'buildings';
-    protected $guarded = false;
+    protected $fillable = [
+        'city',
+        'address',
+        'type',
+    ];
 }
